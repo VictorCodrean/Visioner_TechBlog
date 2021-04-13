@@ -1,5 +1,6 @@
 const { Post, User } = require('../models');
 const { route } = require('./api/userRoute');
+const withAuth = require('../utils/auth');
 
 const router = require('express').Router();
 
@@ -55,7 +56,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
     try {
         const userDB = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },

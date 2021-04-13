@@ -46,10 +46,11 @@ router.post('/login', async (req, res) => {
                 });
             return;
         }
+        // console.log(userDB.id);
 
         req.session.save(() => {
             req.session.loggedIn = true;
-            // req.session.user_id = userDB.id;
+            req.session.user_id = userDB.id;
             // req.session.first_name = userDB.first_name;
             // req.session.last_name = userDB.last_name;
 
@@ -66,5 +67,15 @@ router.post('/login', async (req, res) => {
         res.status(400).json(err);
     }
 })
+
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
+});
 
 module.exports = router;

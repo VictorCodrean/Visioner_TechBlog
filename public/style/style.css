@@ -12,7 +12,7 @@ body {
   padding: 20px 10px;
 }
 
-.header a {
+.header a, .log-out-btn {
   float: left;
   color: beige;
   text-align: center;
@@ -31,15 +31,15 @@ body {
   
 }
 
-.header a:hover {
+.header a:hover, .log-out-btn:hover {
   background-color:  #e04a3f;
   color: snow;
 }
 
-.header a.active {
+/* .header a.active {
   background-color:  #e04a3f;
   color: snow;
-}
+} */
 
 .header-right {
   float: right;

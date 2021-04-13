@@ -2,8 +2,13 @@
     <a href="#default" class="logo">Visioner-Blog</a>
     <div class="header-right">
         <a class="active" href="/">Home</a>
-        <a href="#contact">Dashboard</a>
+
+        {{#if loggedIn}}
+        <a href="/dashboard">Dashboard</a>
+        <button id="logout" type="button" class="btn log-out-btn">Log-Out</button>
+        {{else}}
         <a href="/login">Log-In</a>
         <a href="/signup">Sign-Up</a>
+        {{/if}}
     </div>
 </header>
