@@ -21,6 +21,45 @@ router.get('/', withAuth, async (req, res) => {
 
 router.post('/submit', async (req, res) => {
     console.log(req.body);
+
+    const filePath = req.body.file.path;
+    console.log(filePath);
+    var fileNewUrl;
+
+
+    await cloudinary.uploader.upload(filePath, async (err, result) => {
+        if (err) {
+            res.status(500).json(err)
+            res.render('createPost', {
+                msg: err
+            })
+        } else {
+            console.log(result);
+        }
+        if (!result.url) {
+            fileNewUrl = 'https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673.png'
+        } else {
+            fileNewUrl = result.url;
+        }
+
+        try {
+
+            const newPost = await Post.create({
+                user_id: req.session.user_id,
+                title: req.body.post_title,
+                post_content: req.body.post_description,
+                link: req.body.post_link,
+                file_path: fileNewUrl
+            });
+            console.log(newPost);
+            res.status(200).json(newPost);
+            // res.render('')
+        } catch (err) {
+            console.log(err);
+
+            res.status(500).json(err)
+        }
+    })
 });
 
 module.exports = router;

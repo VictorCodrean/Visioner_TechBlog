@@ -11,7 +11,7 @@ async function addPost(event) {
     formData.append('file', document.querySelector('#uploadFile').files[0]);
 
     if (!formData) {
-        console.log("bad happened");
+        console.log("bad happened, double check all inputs...");
     } else {
         console.log(formData);
     }
