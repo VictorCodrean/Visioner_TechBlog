@@ -9,4 +9,13 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/signup', async (req, res) => {
+    try {
+        res.render('signUp-Page')
+    } catch (err) {
+        console.log(err);
+        res.json(500).json(err)
+    }
+})
+
 module.exports = router;

@@ -1,0 +1,29 @@
+{{> header}}
+
+<div class="row justify-content-center m-4">
+    <div class="col-md-6 col-xs-12">
+        <h2>Sign Up for Vision</h2>
+        <form class="mb-2" id="signUp-form">
+            <div class="form-group">
+                <label for="signup-first-name">First Name</label>
+                <input type="text" class="form-control" id="first-name" placeholder="Michael">
+            </div>
+            <div class="form-group">
+                <label for="signup-last-name">Last Name</label>
+                <input type="text" class="form-control" id="last-name" placeholder="Jackson">
+            </div>
+            <div class="form-group">
+                <label for="signup-email">Email address</label>
+                <input type="email" class="form-control" id="email-signup" placeholder="you@example.com">
+            </div>
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <input type="password" class="form-control" id="password-signup">
+            </div>
+            <button type="submit" class="w-100 btn btn-info">Create Account</button>
+        </form>
+        <a href="/login" class="mt-2 btn btn-light">Have an account, Log-in</a>
+    </div>
+</div>
+
+<script src="./scripts/logIn-signUp.js"></script>
