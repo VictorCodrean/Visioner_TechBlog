@@ -31,7 +31,10 @@ Post.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-
+        file_path: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
     },
     {
         sequelize,
