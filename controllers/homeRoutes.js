@@ -1,21 +1,79 @@
+const { Post, User } = require('../models');
+const { route } = require('./api/userRoute');
+
 const router = require('express').Router();
+
+router.get('/signup', async (req, res) => {
+    try {
+        res.render('signUp')
+    } catch (err) {
+        console.log(err);
+        res.json(500).json(err)
+    }
+})
+
+router.get('/login', async (req, res) => {
+    try {
+        if (req.session.loggedIn) {
+            res.redirect('/dashboard');
+            return;
+        }
+        res.render('logIn');
+    } catch (err) {
+
+    }
+})
 
 router.get('/', async (req, res) => {
     try {
-        res.render('start')
+        // Get all posts from DB and JOIN with user data excluding password
+        const postDB = await Post.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes:
+                    {
+                        exclude: ['password']
+                    },
+                },
+            ],
+        });
+        console.log(postDB);
+
+        // Serialize data so the template can read it
+        const posts = postDB.map((post) => post.get({ plain: true }));
+        console.log(posts);
+
+        // Pass serialized data and session flag into template
+        res.render('home', {
+            posts,
+            loggedIn: req.session.loggedIn,
+        });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 })
 
-router.get('/signup', async (req, res) => {
+router.get('/dashboard', async (req, res) => {
     try {
-        res.render('signUp-Page')
+        const userDB = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: Post }],
+        });
+
+        const user = userDB.get({ plain: true });
+
+        console.log(user)
+
+        res.render('dashboard', {
+            user,
+            loggedIn: true
+        });
     } catch (err) {
-        console.log(err);
-        res.json(500).json(err)
+
     }
+
 })
 
 module.exports = router;
