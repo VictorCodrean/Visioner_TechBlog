@@ -1,0 +1,37 @@
+{{> header}}
+
+<div class="container mt-5 ">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10 col-sm-12">
+            <img class="card-img-top mb-5" src="{{post.file_path}}" alt="img post">
+        </div>
+        {{!-- <div class="row"> --}}
+            <div class="col-md-10 col-sm-12">
+                <div class="card w-75 mr-auto float-left mb-3" style="background-color: #d9b382 ;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{post.title}}</h5>
+                        <p class="card-text">{{post.post_content}}</p>
+                        <a href="#" class="btn " style="background-color: beige;">Add Comment</a>
+                    </div>
+                </div>
+
+
+                <div class="card w-75 ml-auto float-right">
+                    <div class="card-body">
+                        <h5 class="card-title">Comments-to be continued</h5>
+                        <p class="card-text">{{post.post_content}}</p>
+                        <a href="#" class="btn " style="background-color: beige;">Add Comment</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            {{!--
+        </div> --}}
+
+    </div>
+</div>

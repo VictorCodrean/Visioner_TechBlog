@@ -1,6 +1,6 @@
 {{> header}}
 
-<div class="row m-4 justify-content-center">
+<div class="row m-5 justify-content-center">
     <h3>Hello, {{user.first_name}} {{user.last_name }}</h3>
 </div>
 
@@ -9,7 +9,7 @@
     <div class="col-10 d-flex justify-content-center ">
         <div class="card-deck ">
             {{#each user.posts as |post|}}
-            <div class="card mb-4 card-hover" style="background-color: #d9b382 ;">
+            <div class="my-card mb-4 card-hover" style="background-color: #d9b382 ;">
                 <img src="{{post.file_path}}" class="card-img-top" alt="post img">
                 <div class="card-body">
                     <h5 class="card-title"><i class="fas fa-user-secret pr-2"></i>{{post.title}}</h5>

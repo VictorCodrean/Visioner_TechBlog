@@ -56,6 +56,29 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/post/:id', async (req, res) => {
+    try {
+        const postDB = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User
+                },
+            ],
+        })
+
+        const post = postDB.get({ plain: true });
+        console.log(post);
+
+        res.render('singlePost', {
+            post,
+            loggedIn: req.session.loggedIn,
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err)
+    }
+})
+
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
         const userDB = await User.findByPk(req.session.user_id, {

@@ -9,12 +9,9 @@
     <div class="col-10 d-flex justify-content-center ">
         <div class="card-deck ">
             {{#each posts as |post|}}
-            <div class="card mb-4 card-hover" style="background-color: #d9b382 ;">
+            <div class="my-card mb-4 card-hover" style="background-color: #d9b382 ;">
                 <div class="card-header" style="background-color: #b39064 ; color: aliceblue">
-
                     <h3>{{post.title}}</h3>
-
-
                 </div>
                 <img class="card-img-top rounded-circle mx-auto d-block" src="{{post.file_path}}" class="card-img-top"
                     alt="post img">
@@ -36,8 +33,9 @@
         </div>
     </div>
 
-    {{else}}
 
+
+    {{else}}
     <div class="jumbotron  m-5" style="background-color: #b39064 ; color: aliceblue">
 
         <h2 class="text-center"> Dashboard</h2>
