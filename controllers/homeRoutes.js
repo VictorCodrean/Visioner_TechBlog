@@ -1,4 +1,4 @@
-const { Post, User } = require('../models');
+const { Post, User, Comment } = require('../models');
 const { route } = require('./api/userRoute');
 const withAuth = require('../utils/auth');
 
@@ -62,6 +62,14 @@ router.get('/post/:id', async (req, res) => {
             include: [
                 {
                     model: User
+                },
+                {
+                    model: Comment,
+                    include: [
+                        {
+                            model: User
+                        },
+                    ],
                 },
             ],
         })

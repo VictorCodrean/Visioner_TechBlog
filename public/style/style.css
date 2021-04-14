@@ -45,6 +45,14 @@ body {
   float: right;
 }
 
+.hide-add-com-btn {
+  display: none;
+}
+
+.hide-comment-input {
+  display: none;
+}
+
 @media screen and (max-width: 500px) {
   .header a {
     float: none;

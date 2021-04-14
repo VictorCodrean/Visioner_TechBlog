@@ -1,5 +1,6 @@
 async function signUpLogInForm(event) {
     event.preventDefault();
+    console.log(event.target);
     if (event.target.hasAttribute('data-id')) {
         console.log('LogIn - started');
 

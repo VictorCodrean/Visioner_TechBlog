@@ -5,33 +5,55 @@
         <div class="col-md-10 col-sm-12">
             <img class="card-img-top mb-5" src="{{post.file_path}}" alt="img post">
         </div>
-        {{!-- <div class="row"> --}}
-            <div class="col-md-10 col-sm-12">
-                <div class="card w-75 mr-auto float-left mb-3" style="background-color: #d9b382 ;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{post.title}}</h5>
-                        <p class="card-text">{{post.post_content}}</p>
-                        <a href="#" class="btn " style="background-color: beige;">Add Comment</a>
-                    </div>
-                </div>
+        <div class="col-md-10 col-sm-12">
+            <div class="card w-75 mr-auto float-left mb-3" style="background-color: #d9b382 ;">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <p class="card-text">{{post.post_content}}</p>
+                    {{#if loggedIn}}
 
+                    <button class="btn" id="add-comment" style="background-color: beige;">Add Comment</button>
 
-                <div class="card w-75 ml-auto float-right">
-                    <div class="card-body">
-                        <h5 class="card-title">Comments-to be continued</h5>
-                        <p class="card-text">{{post.post_content}}</p>
-                        <a href="#" class="btn " style="background-color: beige;">Add Comment</a>
+                    <div class="p-2 hide-comment-input" id="comment-input" style="background-color: beige;">
+                        <div class="d-flex flex-row align-items-start">
+                            <textarea class="form-control ml-1 shadow-none textarea"
+                                placeholder="say something about the post..."></textarea>
+                        </div>
+                        <div class="mt-2 text-right">
+                            <button class="btn btn-primary btn-sm shadow-none" id="submit-comment" type="button"
+                                data-id="{{post.id}}">
+                                Post
+                                comment
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" id="cancel-comment"
+                                type="button">
+                                Cancel
+                            </button>
+                        </div>
                     </div>
+                    {{/if}}
                 </div>
             </div>
 
 
 
+            <div class="w-75 ml-auto float-right">
+                
+                {{#each post.comments as |comment|}}
+                <div class="card mb-3">
+                    <div class="card-body">
 
+                        <h5 class="card-title">{{comment.user.first_name}} {{comment.user.last_name}}</h5>
 
+                        <p class="card-text">{{comment.comment_content}}</p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
 
-            {{!--
-        </div> --}}
+        </div>
+
 
     </div>
 </div>
+<script src="/scripts/commentPost.js"></script>

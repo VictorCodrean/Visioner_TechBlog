@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 var cloudinary = require('cloudinary').v2;
 
@@ -61,5 +61,25 @@ router.post('/submit', async (req, res) => {
         }
     })
 });
+
+router.post('/comment/:id', async (req, res) => {
+    console.log('what is coming from body', req.body);
+    console.log(req.session);
+    try {
+        const newComment = await Comment.create({
+            user_id: req.session.user_id,
+            post_id: req.body.post_id,
+            comment_content: req.body.comment_text,
+        });
+
+        const comment = newComment.get({ plain: true });
+        console.log(comment);
+
+        res.status(200).json(newComment)
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err)
+    }
+})
 
 module.exports = router;
