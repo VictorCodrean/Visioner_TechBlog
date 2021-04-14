@@ -1,5 +1,50 @@
 {{> header}}
 
-<div style="padding-left:20px">
-    <h1>home page in progresss...</h1>
+<div class="row m-5 justify-content-center">
+    <h3>Here you can see all posts...</h3>
+</div>
+
+<div class="row d-flex justify-content-center">
+    {{#if posts.length}}
+    <div class="col-10 d-flex justify-content-center ">
+        <div class="card-deck ">
+            {{#each posts as |post|}}
+            <div class="card mb-4 card-hover" style="background-color: #d9b382 ;">
+                <div class="card-header" style="background-color: #b39064 ; color: aliceblue">
+
+                    <h3>{{post.title}}</h3>
+
+
+                </div>
+                <img class="card-img-top rounded-circle mx-auto d-block" src="{{post.file_path}}" class="card-img-top"
+                    alt="post img">
+                <div class="card-body">
+
+                    <p>
+                        {{post.post_content}}
+                    </p>
+                    <div class="card-footer mb-3">
+                        <span class="text-muted">Submited by:</span>
+                        <p>{{post.user.first_name}} {{post.user.last_name}}</p>
+                        <small class="text-muted">Date: {{formatDate post.post_date_created}}</small>
+                    </div>
+                    <a href="/post/{{post.id}}" class="btn w-100" style="background-color: beige ; color: black">View
+                        Post</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    {{else}}
+
+    <div class="jumbotron  m-5" style="background-color: #b39064 ; color: aliceblue">
+
+        <h2 class="text-center"> Dashboard</h2>
+        <p class="text-center">You don't have any posts, yet</p>
+        <a class="w-100 btn btn-info" href="/api/post">Add new Post</a>
+
+    </div>
+
+    {{/if}}
 </div>

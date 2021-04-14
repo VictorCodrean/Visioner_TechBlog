@@ -20,10 +20,10 @@ router.get('/', withAuth, async (req, res) => {
 })
 
 router.post('/submit', async (req, res) => {
-    console.log(req.body);
+    console.log('what do we get from body: ', req.body);
 
     const filePath = req.body.file.path;
-    console.log(filePath);
+    console.log('uploaded file location on local machine:'.filePath);
     var fileNewUrl;
 
 
@@ -34,7 +34,7 @@ router.post('/submit', async (req, res) => {
                 msg: err
             })
         } else {
-            console.log(result);
+            console.log('after coludinary upload method we got as a result: ', result);
         }
         if (!result.url) {
             fileNewUrl = 'https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673.png'

@@ -1,10 +1,7 @@
 
     .card {
     min-width: 200px;
-    max-width: 250px;
-}
-.my-list {
-    font-size: x-small;
+    max-width: 350px;
 }
 
 .card-hover:hover {
@@ -13,17 +10,23 @@
 
 }
 
-.card a:link {
-    text-decoration: none;
-    color: #b39064;
+/* .card img {
+    height: 200px;
+    object-fit: cover;
+} */
+
+.rounded-circle {
+    max-width: 250px;
+    object-fit: cover;
 }
 
-
-.card a:link:hover {
-    color:  #8c41ee;
+.card-img-top {
+    max-height: 500px;
+    min-height: auto;
+    object-fit: cover;
 }
-
+/* 
 .card a:visited {
     color: lightcoral;
-}
+} */
     

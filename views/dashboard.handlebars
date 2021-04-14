@@ -5,17 +5,22 @@
 </div>
 
 <div class="row d-flex justify-content-center">
-    {{#if user.post.length}}
+    {{#if user.posts.length}}
     <div class="col-10 d-flex justify-content-center ">
         <div class="card-deck ">
             {{#each user.posts as |post|}}
             <div class="card mb-4 card-hover" style="background-color: #d9b382 ;">
-                <div class="card-header" style="background-color: #b39064 ; color: aliceblue">
-                    <h4>Victor</h4>
-                </div>
+                <img src="{{post.file_path}}" class="card-img-top" alt="post img">
                 <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-user-secret pr-2"></i>Manager</h5>
-                    <ul class="list-group my-list">
+                    <h5 class="card-title"><i class="fas fa-user-secret pr-2"></i>{{post.title}}</h5>
+
+                    <p>
+                        {{post.post_content}}
+                    </p>
+                    <div class="card-footer">
+                        <small class="text-muted">Submited on: {{formatDate post.post_date_created}}</small>
+                    </div>
+                    {{!-- <ul class="list-group my-list">
                         <li class="list-group-item" style="background-color: beige;">
                             <i class="fas fa-id-badge pr-2"></i>ID: 7
                         </li>
@@ -26,7 +31,7 @@
                         <li class="list-group-item" style="background-color: beige;">
                             <i class="far fa-building pr-2"></i>Office number: 5
                         </li>
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
             {{/each}}

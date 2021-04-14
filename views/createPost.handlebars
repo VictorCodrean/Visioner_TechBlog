@@ -4,59 +4,53 @@
     <div class="col-md-6 col-sm-12">
         <h2>Create a Post</h2>
         <form action="/api/post/submit" method="POST" enctype="multipart/form-data" id="add-post">
-            {{!-- <div class="row"> --}}
-                <div class="form-group">
-                    <label for="basic-url">Post-Title</label>
-                    <div class=" input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
-                        </div>
-                        <input id="post-title" type="text" class="form-control" placeholder="Independence Day...">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="basic-url">Add link related to post</label>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Link</span>
-                        </div>
-                        <input id="post-link" type="text" class="form-control"
-                            placeholder="https://drive.google.com/file/...">
-                    </div>
-                </div>
-
-
-                <div class="form-group">
+            <div class="form-group">
+                <label for="basic-url">Post-Title</label>
+                <div class=" input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">Description</span>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
                     </div>
-                    <textarea maxlength="350" id="post-description" class="form-control"
-                        placeholder="Limit: 350 characters"></textarea>
+                    <input id="post-title" type="text" class="form-control" placeholder="Independence Day...">
                 </div>
+            </div>
 
-                <div class="form-group">
-                    {{#if msg}}
-                    <label>{{msg}}</label>
-                    {{else}}
-                    <label class="form-label" for="customFile">Upload an img</label>
-                    {{/if}}
-                    <input type="hidden" id="user_id" value="75" />
-                    <input name="myPost" type="file" class="form-control" id="uploadFile" />
-                </div>
-
-                <div class="row form-group">
-                    <div class="col-md-8 col-sm-6">
-                        <button type="submit" id="submit_post" class=" w-100 btn btn-info mb-3">Submit
-                            Post</button>
+            <div class="form-group">
+                <label for="basic-url">Add link related to post</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Link</span>
                     </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <a href="/">
-                            <span class="w-100 btn btn-danger">Go, back</span>
-                        </a>
-                    </div>
+                    <input id="post-link" type="text" class="form-control"
+                        placeholder="https://drive.google.com/file/...">
                 </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Description</span>
+                </div>
+                <textarea maxlength="350" id="post-description" class="form-control"
+                    placeholder="Limit: 350 characters"></textarea>
+            </div>
+            <div class="form-group">
+                {{#if msg}}
+                <label>{{msg}}</label>
+                {{else}}
+                <label class="form-label" for="customFile">Upload an img</label>
+                {{/if}}
+                <input type="hidden" id="user_id" value="75" />
+                <input name="myPost" type="file" class="form-control" id="uploadFile" />
+            </div>
+            <div class="row form-group">
+                <div class="col-md-8 col-sm-6">
+                    <button type="submit" id="submit_post" class=" w-100 btn btn-info mb-3">Submit
+                        Post</button>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <a href="/">
+                        <span class="w-100 btn btn-danger">Go, back</span>
+                    </a>
+                </div>
+            </div>
         </form>
     </div>
 </div>
