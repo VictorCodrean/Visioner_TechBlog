@@ -21,9 +21,15 @@
 }
 
 .card-img-top {
+    max-height: 500px;
+    min-height: 500px;
+    /* object-fit: cover; */
+}
+
+.card-img-top-2 {
     max-height: 250px;
     min-height: 250px;
-    object-fit: cover;
+    /* object-fit: cover; */
 }
 /* 
 .card a:visited {

@@ -2,8 +2,20 @@
 
 <div class="container mt-5 ">
     <div class="d-flex justify-content-center row">
-        <div class="col-md-10 col-sm-12">
-            <img class="card-img-top mb-5" src="{{post.file_path}}" alt="img post">
+        <div class="col-md-10 col-sm-12 mb-5">
+            <img class="card-img-top" src="{{post.file_path}}" alt="img post">
+            <div class="pt-3 row mx-2" style="background-color: white;">
+                <div class="col-md-6 col-sm-12">
+                    <a href="{{post.link}}" class="w-100 btn btn-success mb-3" target="_blank">
+                        View outside link
+                    </a>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <a href="{{post.file_path}}" class="w-100 btn btn-info mb-3" target="_blank">
+                        Full-size-img
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="col-md-10 col-sm-12">
             <div class="card w-75 mr-auto float-left mb-3" style="background-color: #d9b382 ;">
@@ -37,7 +49,7 @@
 
 
 
-            <div class="w-75 ml-auto float-right">
+            <div class="w-75 ml-auto float-right" id="owner-comment">
 
                 {{#each comments as |comment|}}
 
@@ -54,17 +66,27 @@
                     </div>
                     <div class="card-footer">
                         <div class="mr-auto float-left">
-                            <button class="no-show-btn" class="no-show-btn" style="padding-right: 5px;">
-                                <i class="far fa-thumbs-up">Like</i>
+                            <button class="no-show-btn pr-4">
+                                <i class="far fa-thumbs-up pr-1"></i>
+                                Like
                             </button>
                             <button class="no-show-btn">
-                                <i class="fas fa-reply">Reply</i>
+                                <i class="fas fa-reply pr-1"></i>
+                                Reply
                             </button>
                         </div>
                         <div class="ml-auto float-right">
                             {{#if comment.owner }}
-                            <a href="/api/post/comment/edit/{{comment.id}}" class="pr-3">Edit</a>
-                            <a href="/api/post/comment/delete/{{comment.id}}" class="pr-3">Delete</a>
+                            <a class="pr-3">Edit</a>
+                            {{!-- <a href="/api/post/comment/edit/{{comment.id}}" class="pr-3">Edit</a> --}}
+
+
+
+                            <button class="no-show-btn pr-3" type="button" data-id="{{comment.id}}"
+                                post-id="{{comment.post_id}}" style="color: #007bff;">
+                                Delete
+                            </button>
+
 
                             {{/if}}
 

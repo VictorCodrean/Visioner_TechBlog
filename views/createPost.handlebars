@@ -35,13 +35,18 @@
                 {{#if msg}}
                 <label>{{msg}}</label>
                 {{else}}
-                <label class="form-label" for="customFile">Upload an img</label>
+                <label class="form-label" for="customFile">
+                    Upload an img
+
+                </label>
                 {{/if}}
                 <input type="hidden" id="user_id" value="75" />
                 <input name="myPost" type="file" class="form-control" id="uploadFile" />
             </div>
             <div class="row form-group">
                 <div class="col-md-8 col-sm-6">
+
+
                     <button type="submit" id="submit_post" class=" w-100 btn btn-info mb-3">Submit
                         Post</button>
                 </div>
@@ -50,6 +55,12 @@
                         <span class="w-100 btn btn-danger">Go, back</span>
                     </a>
                 </div>
+                <div class="col-12">
+
+                    <span class="w-100">On click give it a few seconds for img to upload</span>
+
+                </div>
+
             </div>
         </form>
     </div>

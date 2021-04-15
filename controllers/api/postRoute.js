@@ -120,7 +120,7 @@ router.post('/comment/:id', async (req, res) => {
 // });
 
 router.delete('/delete/:id', withAuth, async (req, res) => {
-    console.log("delete started");
+    console.log("post delete started");
     try {
         const postDB = await Post.destroy({
             where: {
@@ -136,6 +136,28 @@ router.delete('/delete/:id', withAuth, async (req, res) => {
         }
 
         res.status(200).json(postDB);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.delete('/comment/delete/:id', withAuth, async (req, res) => {
+    console.log("comment delete started");
+    try {
+        const commentDB = await Comment.destroy({
+            where: {
+                id: req.params.id,
+                user_id: req.session.user_id,
+            },
+        });
+
+        console.log('deleted comment', commentDB);
+        if (!commentDB) {
+            res.status(404).json({ message: 'No post found with this id!' });
+            return;
+        }
+
+        res.status(200).json(commentDB);
     } catch (err) {
         res.status(500).json(err);
     }

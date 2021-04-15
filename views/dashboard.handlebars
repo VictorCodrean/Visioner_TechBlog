@@ -9,19 +9,13 @@
     <div class="col-10 d-flex justify-content-center ">
         <div class="card-deck post-list">
             {{#each user.posts as |post|}}
-            <div class="card my-card m-4 card-hover" style="background-color: #d9b382 ;">
-                <img src="{{post.file_path}}" class="card-img-top" alt="post img">
+            <div class="card my-card card-hover" style="background-color: #d9b382 ;">
+                <img src="{{post.file_path}}" class="card-img-top-2" alt="post img">
                 <div class="card-body">
                     <h5 class="card-title"><i class="fas fa-user-secret pr-2"></i>{{post.title}}</h5>
-
                     <p>
                         {{post.post_content}}
                     </p>
-
-
-
-
-
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">Submited on: {{formatDate post.post_date_created}}</small>

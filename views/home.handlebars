@@ -9,25 +9,27 @@
     <div class="col-10 d-flex justify-content-center ">
         <div class="card-deck ">
             {{#each posts as |post|}}
-            <div class="my-card mb-4 card-hover" style="background-color: #d9b382 ;">
+            <div class="card my-card mb-4 card-hover" style="background-color: #d9b382 ;">
                 <div class="card-header" style="background-color: #b39064 ; color: aliceblue">
                     <h3>{{post.title}}</h3>
                 </div>
-                <img class="card-img-top rounded-circle mx-auto d-block" src="{{post.file_path}}" class="card-img-top"
+                <img class="card-img-top-2 rounded-circle mx-auto d-block" src="{{post.file_path}}" class="card-img-top"
                     alt="post img">
                 <div class="card-body">
 
                     <p>
                         {{post.post_content}}
                     </p>
-                    <div class="card-footer mb-3">
-                        <span class="text-muted">Submited by:</span>
-                        <p>{{post.user.first_name}} {{post.user.last_name}}</p>
-                        <small class="text-muted">Date: {{formatDate post.post_date_created}}</small>
-                    </div>
+
+                </div>
+                <div class="card-footer mb-3">
+                    <span class="text-muted">Submited by:</span>
+                    <p>{{post.user.first_name}} {{post.user.last_name}}</p>
+                    <small class="text-muted">Date: {{formatDate post.post_date_created}}</small>
                     <a href="/post/{{post.id}}" class="btn w-100" style="background-color: beige ; color: black">View
                         Post</a>
                 </div>
+
             </div>
             {{/each}}
         </div>
