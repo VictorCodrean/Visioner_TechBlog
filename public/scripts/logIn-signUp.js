@@ -1,6 +1,6 @@
 async function signUpLogInForm(event) {
     event.preventDefault();
-    console.log(event.target);
+    // console.log(event.target);
     if (event.target.hasAttribute('data-id')) {
         console.log('LogIn - started');
 
@@ -29,14 +29,14 @@ async function signUpLogInForm(event) {
         }
     } else {
 
-        console.log('signup - started');
+        // console.log('signup - started');
 
         const first_name = document.querySelector('#first-name').value.trim();
         const last_name = document.querySelector('#last-name').value.trim();
         const email = document.querySelector('#email-signup').value.trim();
         const password = document.querySelector('#password-signup').value.trim();
 
-        console.log('Input values: ', first_name, last_name, email, password);
+        // console.log('Input values: ', first_name, last_name, email, password);
 
         if (first_name && last_name && email && password) {
             const response = await fetch('/api/user/signup', {

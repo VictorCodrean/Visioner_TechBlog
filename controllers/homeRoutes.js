@@ -7,6 +7,7 @@ const router = require('express').Router();
 router.get('/signup', async (req, res) => {
     try {
         res.render('signUp')
+
     } catch (err) {
         console.log(err);
         res.json(500).json(err)

@@ -11,16 +11,16 @@ async function addPost(event) {
     formData.append('file', document.querySelector('#uploadFile').files[0]);
 
     if (!formData) {
-        console.log("bad happened, double check all inputs...");
+        // console.log("bad happened, double check all inputs...");
     } else {
-        console.log(formData);
+        // console.log(formData);
     }
     const response = await fetch('/api/post/submit', {
         method: 'POST',
         body: formData,
     });
     if (response.ok) {
-        console.log('success');
+        // console.log('success');
         // Relocate to dashboard
         document.location.replace('/dashboard');
     } else {
