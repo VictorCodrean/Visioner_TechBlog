@@ -21,8 +21,8 @@
 }
 
 .card-img-top {
-    max-height: 500px;
-    min-height: auto;
+    max-height: 250px;
+    min-height: 250px;
     object-fit: cover;
 }
 /* 

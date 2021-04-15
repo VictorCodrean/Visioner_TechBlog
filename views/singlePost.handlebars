@@ -38,14 +38,39 @@
 
 
             <div class="w-75 ml-auto float-right">
-                
-                {{#each post.comments as |comment|}}
+
+                {{#each comments as |comment|}}
+
                 <div class="card mb-3">
                     <div class="card-body">
 
-                        <h5 class="card-title">{{comment.user.first_name}} {{comment.user.last_name}}</h5>
+                        <h5 class="card-title">{{comment.user.first_name}} {{comment.user.last_name}} -
+                            <small>{{formatDate comment.comment_date_created}}</small>
+                        </h5>
 
-                        <p class="card-text">{{comment.comment_content}}</p>
+                        <p class="card-text pl-5">{{comment.comment_content}}</p>
+
+
+                    </div>
+                    <div class="card-footer">
+                        <div class="mr-auto float-left">
+                            <button class="no-show-btn" class="no-show-btn" style="padding-right: 5px;">
+                                <i class="far fa-thumbs-up">Like</i>
+                            </button>
+                            <button class="no-show-btn">
+                                <i class="fas fa-reply">Reply</i>
+                            </button>
+                        </div>
+                        <div class="ml-auto float-right">
+                            {{#if comment.owner }}
+                            <a href="/api/post/comment/edit/{{comment.id}}" class="pr-3">Edit</a>
+                            <a href="/api/post/comment/delete/{{comment.id}}" class="pr-3">Delete</a>
+
+                            {{/if}}
+
+
+                        </div>
+
                     </div>
                 </div>
                 {{/each}}

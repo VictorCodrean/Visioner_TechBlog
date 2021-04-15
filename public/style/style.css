@@ -53,6 +53,13 @@ body {
   display: none;
 }
 
+.no-show-btn {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+
 @media screen and (max-width: 500px) {
   .header a {
     float: none;

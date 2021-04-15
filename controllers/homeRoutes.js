@@ -61,24 +61,55 @@ router.get('/post/:id', async (req, res) => {
         const postDB = await Post.findByPk(req.params.id, {
             include: [
                 {
-                    model: User
+                    model: User,
+                    attributes: {
+                        exclude: ['password']
+                    },
                 },
                 {
                     model: Comment,
                     include: [
                         {
-                            model: User
+                            model: User,
+                            attributes: {
+                                exclude: ['password']
+                            }
                         },
                     ],
                 },
             ],
         })
-
         const post = postDB.get({ plain: true });
         console.log(post);
 
+        const commentDB = await Comment.findAll({
+            where: {
+                post_id: req.params.id,
+            },
+            include: [
+                {
+                    model: User,
+                    attributes: {
+                        exclude: ['password']
+                    }
+                },
+            ],
+        });
+
+        const comments = commentDB.map((comment) => comment.get({ plain: true }));
+        console.log('here is plain true comments', comments);
+
+        comments.forEach((comment) => {
+            let owner = false;
+            if (req.session.user_id == comment.user_id) {
+                owner = true;
+            }
+            comment.owner = owner;
+        });
+
         res.render('singlePost', {
             post,
+            comments,
             loggedIn: req.session.loggedIn,
         });
     } catch (err) {
