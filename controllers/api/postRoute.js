@@ -4,9 +4,9 @@ const withAuth = require('../../utils/auth');
 var cloudinary = require('cloudinary').v2;
 
 cloudinary.config({
-    cloud_name: 'dz52vqg3p',
-    api_key: '412443397181723',
-    api_secret: 'q-mf7e4S7u-oJqmK9BeXOqne7oU',
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
 })
 
 router.get('/', withAuth, async (req, res) => {

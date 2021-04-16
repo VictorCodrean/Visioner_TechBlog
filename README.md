@@ -3,93 +3,77 @@
 ## Table of contents
 - [Description](#Description)
 - [User Story](#User/Story)
-- [Installation](#Installation)
 - [Usage](#Usage)
 - [Framework HTML/JS](#Framework)
 - [Credits](#Credits)
 - [Contributors](#Contributing)
+- [Features](#Features)
 
 ## Illustration
 
-![sampleReadme](./assets/illustrationn.gif)
+![sampleReadme](public\assets\pictures\createIllustration.gif)
 
 ## Description
 
-Is an interface that makes it easier for non-developers to view and interact with information stored in databases. 
+A CMS-style blog site where developers can publish their posts and comment on other developers’ posts as well. The app it's following the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
    
 ## User/Story  
 ```md
-As a business owner
-I want to be able to view and manage the departments, roles, and employees in my company
-So that I can organize and plan my business
-```
-
-## Video_demonstration
-
-[![video](/assets/working_processs.png)](https://www.youtube.com/watch?v=Qmq0qqcXSIQ "Video demonstration")
-
-## Installation
-```md
-git clone <https://github.com/VictorCodrean/Track-and-Manage-Employees.git> (to get the code)
-npm i              (to install dependencies (...mysql, inquirer, console.table)) 
-node <server.js>       (to run the program)
+AS A developer who writes about tech
+I WANT a CMS-style blog site
+SO THAT I can publish articles, blog posts, and my thoughts and opinions
 ```
 
 ## Usage
-```md
-* Run the app: node server.js
-  It will pop up a menu with options of what you can change/add to database...
+
+* Visit [visioner-techblog](https://visioner-techblog.herokuapp.com)
+
 * Base options
-  * Add departments, roles, employees
+  * View posts as a visitor
 
-  * View departments, roles, employees
+  * Sign-up in order to be able to create posts
 
-  * Update employee roles
-```
+  * Once logged-In able to view and comment posts...
+
 ## Framework
-* JS - code:
-    * modules imported...
-        ```
-        const mysql = require("mysql");
-        require("dotenv").config()
-        const inquirer = require("inquirer");
-        const cTable = require("console.table");
-        ...
-        ```
-    * mysql
-         ```
-        connection.query(query, function (err, res) {
-          ...
-        })
 
-        const connection = mysql.createConnection({
-        host: "localhost",
-        port: 3306,
-           user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME,
-        });
-        ```
-     * inqu irer
-         ```
-        inquirer.prompt({
-          ...
-        }).then(function(){
-          ...
-        })
-          
-        ```
+#### JavaScript(back-end) and public Html/CSS
+
+  * MVC paradigm
+    * Handlebars.js as the templating language
+
+    * Sequelize as the ORM
+
+    * express-session npm package for authentication.
+
+    * cloduinary npm package for Uploading img...
+
+    
 ## Credits
  * - [StackOverFlow](https://stackoverflow.com/)
- * - [Npm-mysql](https://www.npmjs.com/package/mysql)
- * - [W3Schools](https://www.w3schools.com/sql/)
+  * - [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+  * - [W3Schools](https://www.w3schools.com/sql/)
+ * - [Cloudinary](https://cloudinary.com/documentation)
+
 
 ## Directory
-* [GitHub Source](https://github.com/VictorCodrean/Track-and-Manage-Employees)
+* [GitHub Source](https://github.com/VictorCodrean/Visioner_TechBlog)
 
 ## Contributing
 Victor Codrean    
-*  [Repository link:](https://github.com/VictorCodrean/Track-and-Manage-Employees)
+*  [Visioner/app link:](https://visioner-techblog.herokuapp.com/)
+
+## Features
+* Targets
+
+  * For now you'are able to add new Posts/Comments and delete them...(Targetting the possibility of the UPDATE route in order to be able to edit existing comments/posts).
+
+  * Add likes opportunity
+
+  * Reply to a specific comment would be really nice
+
+  * Count Views of each post and then render in order by view count... 
+
 
 Asking me any questions:
 
