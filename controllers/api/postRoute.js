@@ -135,7 +135,7 @@ router.delete('/delete/:id', withAuth, async (req, res) => {
             return;
         }
 
-        res.status(200).json(postDB);
+        res.status(204).send();
     } catch (err) {
         res.status(500).json(err);
     }
@@ -157,7 +157,7 @@ router.delete('/comment/delete/:id', withAuth, async (req, res) => {
             return;
         }
 
-        res.status(200).json(commentDB);
+        res.status(204).send();
     } catch (err) {
         res.status(500).json(err);
     }
