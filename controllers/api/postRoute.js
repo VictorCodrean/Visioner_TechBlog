@@ -12,7 +12,9 @@ cloudinary.config({
 router.get('/', withAuth, async (req, res) => {
 
     try {
-        res.render('createPost')
+        res.render('createPost', {
+            loggedIn: req.session.loggedIn
+        })
     } catch (err) {
         console.log(err);
         res.json(500).json(err)
