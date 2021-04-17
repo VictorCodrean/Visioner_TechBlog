@@ -11,7 +11,7 @@
 
 ## Illustration
 
-![sampleReadme](public\assets\pictures\createIllustration.gif)
+![sampleReadme](.\public\assets\pictures\createIllustration.gif)
 ![sampleReadme](public\assets\pictures\commentIllustration.gif)
 ![sampleReadme](public\assets\pictures\DB-schema.png)
 
